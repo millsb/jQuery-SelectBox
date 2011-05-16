@@ -48,6 +48,7 @@
 			
 			menuTransition: ['default', 'slide', 'fade'] - the show/hide transition for dropdown menus
 			menuSpeed: [integer, 'slow', 'normal', 'fast'] - the show/hide transition speed
+			customOptions: $('#some').selectBox({ "customOptions":[{"value":"some value","html":"option 1  "},{"value":"some value 2","html":"option 2"}] });
 	
 	
 	Methods:
