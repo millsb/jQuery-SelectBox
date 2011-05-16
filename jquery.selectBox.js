@@ -559,7 +559,7 @@ if(jQuery) (function($) {
 				}
 				
 				if( control.hasClass('selectBox-dropdown') ) {
-					control.find('.selectBox-label').text(li.text());
+					control.find('.selectBox-label').html(li.html());
 				}
 				
 				// Update original control's value
