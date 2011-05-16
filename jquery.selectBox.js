@@ -345,7 +345,18 @@ if(jQuery) (function($) {
 								
 							});
 							
-						} else {
+						} else if(undefined != method.customOptions){
+						    select.html('');
+						    $.each(method.customOptions,function(optionKey,option){
+						        select.append('<option value="'+option.value+'">'+option.value+'</option>');
+						        var li = $('<li />'),
+						        a = $('<a />');
+						        a.attr('rel', option.value)
+						         .html(option.html);
+						        li.append(a);
+						        options.append(li);
+						    });
+						}else{
 							
 							if( select.find('OPTION').length > 0 ) {
 								select.find('OPTION').each( function() {
