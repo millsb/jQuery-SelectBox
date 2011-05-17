@@ -122,7 +122,7 @@ if(jQuery) (function($) {
 			var init = function(select, data) {
 				
 				// Disable for iOS devices (their native controls are more suitable for a touch device)
-				if( navigator.userAgent.match(/iPad|iPhone/i) ) return false;
+				if( navigator.userAgent.match(/iPad|iPhone|Android/i) ) return false;
 				
 				// Element must be a select control
 				if( select.tagName.toLowerCase() !== 'select' ) return false;
