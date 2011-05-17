@@ -105,6 +105,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	background: 6px center no-repeat;
+	text-decoration: none;
 }
 
 .selectBox-options LI.selectBox-hover A {

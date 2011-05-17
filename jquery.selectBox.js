@@ -48,7 +48,11 @@
 			
 			menuTransition: ['default', 'slide', 'fade'] - the show/hide transition for dropdown menus
 			menuSpeed: [integer, 'slow', 'normal', 'fast'] - the show/hide transition speed
-			customOptions: $('#some').selectBox({ "customOptions":[{"value":"some value","html":"option 1  "},{"value":"some value 2","html":"option 2"}] });
+			customOptions: $('#some').selectBox({ "customOptions":[
+										 {selected:true, value:"some value", html:"option 1  "},
+										 {value:"some value 2",html:"option 2"}
+									 	] 
+								});
 	
 	
 	Methods:
@@ -214,7 +218,12 @@ if(jQuery) (function($) {
 					label.text( $(select).find('OPTION:selected').text() || '\u00A0' );
 					
 					var options = getOptions(select, 'dropdown');
-					options.appendTo('BODY');
+					//select custom option
+					if(undefined != method.customOptions)
+						for(var i in method.customOptions)
+							if(undefined != method.customOptions[i].selected && method.customOptions[i].selected)
+								label.html( method.customOptions[i].html );
+		options.appendTo('BODY');
 					
 					control
 						.data('selectBox-options', options)
@@ -349,7 +358,11 @@ if(jQuery) (function($) {
 						} else if(undefined != method.customOptions){
 						    select.html('');
 						    $.each(method.customOptions,function(optionKey,option){
-						        select.append('<option value="'+option.value+'">'+option.value+'</option>');
+							if(undefined != option.selected && option.selected)
+								select.append('<option value="'+option.value+'" selected="selected">'+option.value+'</option>');
+							else
+								select.append('<option value="'+option.value+'">'+option.value+'</option>');
+
 						        var li = $('<li />'),
 						        a = $('<a />');
 						        a.attr('rel', option.value)
