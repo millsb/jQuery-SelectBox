@@ -219,11 +219,18 @@ if(jQuery) (function($) {
 					
 					var options = getOptions(select, 'dropdown');
 					//select custom option
-					if(undefined != method.customOptions)
+					if(undefined != method.customOptions){
+						var selected = false;
 						for(var i in method.customOptions)
-							if(undefined != method.customOptions[i].selected && method.customOptions[i].selected)
+							if(undefined != method.customOptions[i].selected && method.customOptions[i].selected){
 								label.html( method.customOptions[i].html );
-		options.appendTo('BODY');
+								selected = true;
+							}
+						//select first element if not selected
+						if(!selected && undefined != method.customOptions[0])
+							label.html( method.customOptions[0].html );
+					}
+					options.appendTo('BODY');
 					
 					control
 						.data('selectBox-options', options)
